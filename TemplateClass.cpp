@@ -5,7 +5,7 @@ using namespace std;
 // Class Template
 template <class T>
 class Test {
-    T a; // Missing semicolon here
+    T a; 
 public:
     Test(T x) {
         a = x;
