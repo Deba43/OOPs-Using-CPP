@@ -44,23 +44,27 @@ using namespace std;
 class Base 
 { 
 public: 
-	int i = 9, j = 7; 
+    int i = 9, j = 7; 
 
-	void operator+() 
-	{ 
-		++i; 
-		++j; 
-		cout << "i: " << i << endl;
-		cout << "j: " << j << endl;
-	} 
-	
+    Base operator+(const Base& other) const
+    { 
+        Base result; 
+        result.i = this->i + other.i; 
+        result.j = this->j + other.j; 
+        return result; 
+    } 
 }; 
 
 int main() 
 { 
-    Base b;
-    cout<<b.i+b.j;//Use of two operand
-	return 0; 
-}
+    Base b1;
+    Base b2;
 
+    Base b3 = b1 + b2; // Using overloaded + operator for addition
+
+    cout << "i: " << b3.i << endl; // Output: i: 18
+    cout << "j: " << b3.j << endl; // Output: j: 14
+
+    return 0; 
+} 
 
