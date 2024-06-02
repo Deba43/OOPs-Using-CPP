@@ -1,6 +1,6 @@
 /*
 
-- A copy constructor is a special type of constructor which is used to create a new object as a copy of an existing object. 
+- A copy constructor is a special type of constructor which is used to create a new object as a copy of an existing object.
 - It takes a reference to an object of the same class as its argument.
 
 */
@@ -8,7 +8,8 @@
 #include <iostream>
 using namespace std;
 
-class Copy {
+class Copy
+{
 	int data;
 
 public:
@@ -16,33 +17,25 @@ public:
 	Copy() {}
 
 	// parameterized constructor
-	Copy(int d) 
-    { 
-        data = d; 
-    }
+	Copy(int d)
+	{
+		data = d;
+		cout << "The value of data is:" << data << endl;
+	}
 
 	// copy constructor
-	Copy(Copy& t)
-     { 
-        data = t.data; 
-        cout<<"I'm Parametrized Constructor"<<endl;
-     }
-
-	void display()
-     { 
-        cout << "data = " << data; 
-     }
+	Copy(Copy &t)
+	{
+		data = t.data;
+		cout << "I'm copy Constructor and my value is:" << data << endl;
+	}
 };
 
 int main()
 {
-	Copy obj(10);
-	obj.display();//Parmeterized constructor called
-	cout << endl;
+	Copy obj(10);//Parameterized Constructor called
 
-	// copy constructor called
-	Copy obj2(obj);
-	obj2.display();
+	Copy obj2(obj);//Copy Constructor called
 
 	return 0;
 }
